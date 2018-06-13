@@ -314,7 +314,7 @@ int RunProgram(int argc, LPWSTR* argv)
 	{
 		DL_FOREACH(infList->Files, infEL)
 		{
-			int lenSubject = _snwprintf(certSubject, _countof(certSubject), L"CN=%s (%s) [Self]", infEL->Provider, infEL->InfTitle);
+			int lenSubject = _snwprintf(certSubject, _countof(certSubject), L"CN=\"%s (%s) [Self]\"", infEL->Provider, infEL->InfTitle);
 			if (lenSubject < 0 || lenSubject >= _countof(certSubject)) lenSubject = _countof(certSubject) - 1;
 			certSubject[lenSubject] = '\0';
 
