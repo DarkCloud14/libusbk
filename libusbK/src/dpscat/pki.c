@@ -36,10 +36,14 @@
 
 #define CATSIGN_STANDALONE
 
+#ifndef _WIN32_WINNT_WIN8
+	#define _WIN32_WINNT_WIN8 0x0602
+#endif
+
 static BOOL ShouldUseSHA256()
 {
-	const WORD wMajorVersion = HIBYTE(_WIN32_WINNT_WIN7);
-	const WORD wMinorVersion = LOBYTE(_WIN32_WINNT_WIN7);
+	const WORD wMajorVersion = HIBYTE(_WIN32_WINNT_WIN8);
+	const WORD wMinorVersion = LOBYTE(_WIN32_WINNT_WIN8);
 	const WORD wServicePackMajor = 0;
 
     OSVERSIONINFOEXW osvi = { sizeof(osvi), 0, 0, 0, 0, {0}, 0, 0 };
